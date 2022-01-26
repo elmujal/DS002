@@ -1,3 +1,4 @@
+
 """
 This is code for the introduction chapter. As such, it stands alone
 and won't be used anywhere else in the book.
@@ -7,6 +8,11 @@ and won't be used anywhere else in the book.
 import tabulate
 
 DEBUG = False
+
+schools = ["Pomona","Scripps","Scripps","Scripps","CMC","Scripps",
+    "Scripps","Scripps","Pitzer","Pitzer","Scripps","Scripps",
+    "Pomona","Pomona","Scripps","Pitzer","Scripps","Pomona",
+    "Pomona","Scripps"]
 
 # a bit from https://nyu-cds.github.io/courses/exercises/Basic-python-1/
 banded_birds = [['A1', 28], ['A2', 32], ['A3', 1], ['A4', 0],
