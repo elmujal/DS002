@@ -3,8 +3,12 @@ This template contains function declarations and a handful of assert tests for `
 Edit the return statements in each function until they pass each assertion. Refer to Chapter 4 from "Data Science from Scratch" for help.
 """
 from typing import List
+from typing import Tuple
+import math
+from typing import Callable
 
 Vector = List[float]
+Matrix = List[List[float]]
 
 def add(v: Vector, w: Vector) -> Vector:
     """Adds corresponding elements"""
@@ -69,9 +73,37 @@ def distance(v: Vector, w: Vector) -> float:
     """Computes the distance between v and w"""
     return math.sqrt(squared_distance(v, w))
 
-
 def distance(v: Vector, w: Vector) -> float:  # type: ignore
     return magnitude(subtract(v, w))
+def shape(A: Matrix) -> Tuple[int, int]:
+    """Returns (# of rows of A, # of columns of A)"""
+    num_rows = len(A)
+    num_cols = len(A[0]) if A else 0   # number of elements in first row
+    return num_rows, num_cols
+
+def get_row(A: Matrix, i: int) -> Vector:
+    """Returns the i-th row of A (as a Vector)"""
+    return A[i]             # A[i] is already the ith row
+
+def get_column(A: Matrix, j: int) -> Vector:
+    """Returns the j-th column of A (as a Vector)"""
+    return [A_i[j]          # jth element of row A_i
+            for A_i in A]   # for each row A_i
+
+def make_matrix(num_rows: int,
+                num_cols: int,
+                entry_fn: Callable[[int, int], float]) -> Matrix:
+    """
+    Returns a num_rows x num_cols matrix
+    whose (i,j)-th entry is entry_fn(i, j)
+    """
+    return [[entry_fn(i, j)             # given i, create a list
+             for j in range(num_cols)]  #   [entry_fn(i, 0), ... ]
+            for i in range(num_rows)]   # create one list for each i
+
+def identity_matrix(n: int) -> Matrix:
+    """Returns the n x n identity matrix"""
+    return make_matrix(n, n, lambda i, j: 1 if i == j else 0)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Extra assert statements to test all of the functions you will need
