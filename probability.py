@@ -1,4 +1,4 @@
- Code based on Data Science from Scratch
+# Code based on Data Science from Scratch
 # with corrections for Scripps College
 # DS002, Spring 2022
 # Professor Douglas Goodwin
