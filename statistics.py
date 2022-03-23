@@ -181,4 +181,4 @@ assert quantile(num_friends, 0.75) == 9
 assert quantile(num_friends, 0.90) == 13
 assert interquartile_range(num_friends) == 6
 assert 22.42 < covariance(num_friends, daily_minutes) < 22.43
-assert 22.42 / 60 < covariance(num_friends, daily_hours) < 22.43 / 60
+assert 22.42 / 60 < covariance(num_friends, daily_hours) < 22.43 / 60 
